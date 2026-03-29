@@ -13,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
 import com.wemaka.kcourses.data.repositories.users.AuthRepository
 import com.wemaka.kcourses.navigation.BaseRoute
@@ -39,17 +40,17 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             val items = listOf(
                 BottomBarItem(
-                    title = "Главная",
+                    title = stringResource(R.string.nav_home),
                     iconResId = R.drawable.ic_home,
                     route = CoursesGraph
                 ),
                 BottomBarItem(
-                    title = "Избранное",
+                    title = stringResource(R.string.nav_favorites),
                     iconResId = R.drawable.ic_mark,
                     route = FavoriteCoursesGraph
                 ),
                 BottomBarItem(
-                    title = "Аккаунт",
+                    title = stringResource(R.string.nav_account),
                     iconResId = R.drawable.ic_person,
                     route = AccountGraph
                 )
