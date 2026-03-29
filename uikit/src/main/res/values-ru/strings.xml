@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">KCourses</string>
+
+    <string name="login_title">Вход</string>
+    <string name="email_label">Email</string>
+    <string name="email_placeholder">example@gmail.com</string>
+    <string name="password_label">Пароль</string>
+    <string name="password_placeholder">Введите пароль</string>
+    <string name="btn_login">Вход</string>
+    <string name="no_account">Нету аккаунта?</string>
+    <string name="register_link">Регистрация</string>
+    <string name="forgot_password">Забыл пароль</string>
+
+    <string name="search_hint">Поиск курсов…</string>
+    <string name="sort_by_date">По дате добавления</string>
+    <string name="details_link">Подробнее</string>
+    <string name="search_no_results">Ничего не найдено</string>
+    <string name="state_empty">Пусто</string>
+    <string name="favorites_empty_description">Добавьте понравившиеся курсы</string>
+
+    <string name="nav_home">Главная</string>
+    <string name="nav_favorites">Избранное</string>
+    <string name="nav_account">Аккаунт</string>
+</resources>

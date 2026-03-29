@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">KCourses</string>
+
+    <string name="login_title">Login</string>
+    <string name="email_label">Email</string>
+    <string name="email_placeholder">example@gmail.com</string>
+    <string name="password_label">Password</string>
+    <string name="password_placeholder">Enter password</string>
+    <string name="btn_login">Login</string>
+    <string name="no_account">No account?</string>
+    <string name="register_link">Register</string>
+    <string name="forgot_password">Forgot password</string>
+
+    <string name="search_hint">Search courses...</string>
+    <string name="sort_by_date">By date added</string>
+    <string name="details_link">More details</string>
+    <string name="search_no_results">Nothing was found</string>
+    <string name="state_empty">Empty</string>
+    <string name="favorites_empty_description">Add your favorite courses</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_favorites">Favorites</string>
+    <string name="nav_account">Account</string>
+</resources>
