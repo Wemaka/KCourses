@@ -47,7 +47,7 @@ internal fun FavoriteCoursesContent(
     state: UiState,
     onFavoriteClick: (Int) -> Unit
 ) {
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     val listState = rememberLazyListState()
     val refreshState = rememberPullToRefreshState()
     val locale = LocalConfiguration.current.locales[0]
@@ -113,42 +113,34 @@ internal fun FavoriteCoursesContent(
                     }
 
                     is UiState.Show -> {
-                        PullToRefreshBox(
-                            modifier = Modifier.fillMaxSize(),
-                            state = refreshState,
-                            isRefreshing = false,
-                            onRefresh = { }
+                        LazyColumn(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalArrangement = Arrangement.spacedBy(space16),
+                            state = listState,
+                            contentPadding = PaddingValues(
+                                bottom = space16
+                            )
                         ) {
-                            LazyColumn(
-                                modifier = Modifier
-                                    .fillMaxSize(),
-                                verticalArrangement = Arrangement.spacedBy(space16),
-                                state = listState,
-                                contentPadding = PaddingValues(
-                                    bottom = space16
+                            items(
+                                items = state.courses,
+                                key = { it.id }
+                            ) { course ->
+                                CourseCard(
+                                    imageUrl = "",
+                                    rate = course.rate,
+                                    date = course.startDate.formatLocalizedDate(locale),
+                                    title = course.title,
+                                    description = course.text,
+                                    price = course.price,
+                                    isFavorite = course.hasLike,
+                                    onFavoriteClick = { onFavoriteClick(course.id) },
+                                    onCardClick = {}
                                 )
-                            ) {
-                                items(
-                                    items = state.courses,
-                                    key = { it.id }
-                                ) { course ->
-                                    CourseCard(
-                                        imageUrl = "",
-                                        rate = course.rate,
-                                        date = course.startDate.formatLocalizedDate(locale),
-                                        title = course.title,
-                                        description = course.text,
-                                        price = course.price,
-                                        isFavorite = course.hasLike,
-                                        onFavoriteClick = { onFavoriteClick(course.id) },
-                                        onCardClick = {}
-                                    )
-                                }
                             }
                         }
                     }
                 }
-
             }
         }
     }

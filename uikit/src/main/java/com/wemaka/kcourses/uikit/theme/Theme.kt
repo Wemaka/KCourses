@@ -41,7 +41,7 @@ private val DarkColorScheme = darkColorScheme(
 
     surfaceContainer = Color(0xFF24252A),
 
-    outline = Color(0xFF444A52),
+    outline = Color(0xFF4E555E),
     outlineVariant = Color(0xFF2A2F36),
 
     error = Color(0xFFFF4D5E),

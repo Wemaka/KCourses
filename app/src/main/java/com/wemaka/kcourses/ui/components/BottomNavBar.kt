@@ -21,6 +21,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -61,6 +63,7 @@ fun BottomNavBar(
     val isNavigationBarVisible = remember(selectedRoute) {
         selectedRoute != null
     }
+    val outlineColor = MaterialTheme.colorScheme.outline
 
     AnimatedVisibility(
         visible = isNavigationBarVisible,
@@ -69,7 +72,15 @@ fun BottomNavBar(
         exit = fadeOut() + slideOutVertically { it },
     ) {
         NavigationBar(
-            modifier = modifier,
+            modifier = modifier
+                .drawBehind {
+                    drawLine(
+                        color = outlineColor,
+                        start = Offset(0f, 0f),
+                        end = Offset(size.width, 0f),
+                        strokeWidth = 1.dp.toPx()
+                    )
+                },
             containerColor = MaterialTheme.colorScheme.surfaceContainer,
             windowInsets = WindowInsets(0)
         ) {
